@@ -9,7 +9,7 @@ Relive the classic arcade experience with Pong 2D on Android! This project bring
 
 🛠️ The following technologies are used in this project:
     
-    Java ☕: Handles game logic and event processing.
+    Java ☕: Handles game logic and event processing
     
     Android Studio 🏗️: Used for development and compiling.
     
