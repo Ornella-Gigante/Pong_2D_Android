@@ -1,5 +1,6 @@
 package es.myapplication;
 
+import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
 
@@ -26,44 +27,16 @@ public class Player {
         return racquetWidth;
     }
 
-    public void setRacquetWidth(int racquetWidth) {
-        this.racquetWidth = racquetWidth;
-    }
-
-
     public int getRacquetHeight() {
         return racquetHeight;
     }
 
-    public void setRacquetHeight(int racquetHeight) {
-        this.racquetHeight = racquetHeight;
+    public void draw(Canvas canvas){
+        canvas.drawRoundRect(bounds,5,5,paint);
     }
 
-    public RectF getBounds() {
-        return bounds;
+    @Override
+    public String toString() {
+        return "Width = " + racquetWidth + "Height = " + racquetHeight + "score = " + score + "Top = " + bounds.top + "Left = "  + bounds.left;
     }
-
-    public void setBounds(RectF bounds) {
-        this.bounds = bounds;
-    }
-
-    public Paint getPaint() {
-        return paint;
-    }
-
-    public void setPaint(Paint paint) {
-        this.paint = paint;
-    }
-
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-
-
 }
