@@ -43,7 +43,7 @@ public class Ball {
 
 
         // Limits the vertical position of the ball so it does not go off the screen
-        
+
         if(cy < radius){
             cy = radius;
         }else if(cy + radius >= canvas.getHeight()){
@@ -53,6 +53,11 @@ public class Ball {
 
     public int getRadius() {
         return radius;
+    }
+
+    @Override
+    public String toString() {
+        return "Cx = " + cx + "Cy" + cy + "velX = " + velocity_x + "velY = " + velocity_y;
     }
 
 
