@@ -13,6 +13,13 @@ public class Ball {
     private int radius;
     private Paint paint;
 
+    /**
+     * Constructor that initializes a new ball with the given coordinates and velocities.
+     * @param cx x-coordinate of the center of the ball
+     * @param cy y-coordinate of the center of the ball
+     * @param velocity_x Velocity in the x direction
+     * @param velocity_y Velocity in the y direction
+     */
 
     public Ball(float cx, float cy, float velocity_x, float velocity_y){
 
@@ -23,12 +30,20 @@ public class Ball {
     }
 
 
+    /**
+     * Updates and draws the position of the ball on the canvas.
+     * However, in this code, the ball is not actually being drawn.
+     * @param canvas Canvas where the ball will be drawn
+     */
+
     public void draw(Canvas canvas){
 
         cx += velocity_x;
         cy += velocity_y;
 
 
+        // Limits the vertical position of the ball so it does not go off the screen
+        
         if(cy < radius){
             cy = radius;
         }else if(cy + radius >= canvas.getHeight()){
