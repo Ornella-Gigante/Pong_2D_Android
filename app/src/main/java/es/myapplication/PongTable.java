@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -144,4 +145,51 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
         mBall.draw(canvas);
 
     }
+
+    /**
+     * Handles touch events on the PongTable.
+     * Currently, it delegates the touch handling to the superclass implementation.
+     * @param event The MotionEvent representing the touch input.
+     * @return True if the event was handled, false otherwise.
+     */
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event){
+        return super.onTouchEvent(event);
+    }
+
+    /**
+     * Checks if a touch event occurred within the bounds of the player's racket.
+     * @param event The MotionEvent representing the touch input.
+     * @param mPlayer The player whose racket is being checked.
+     * @return True if the touch is within the racket's bounds, false otherwise.
+     */
+
+    private boolean isTouchRacket(MotionEvent event,Player mPlayer){
+
+        return mPlayer.bounds.contains(event.getX(),event.getY());
+    }
+
+    /**
+     * Moves the player's racket vertically by a specified distance.
+     * Currently, this method is empty and needs implementation for racket movement logic.
+     * @param dy The distance to move the racket vertically.
+     * @param player The player whose racket is being moved.
+     */
+    public void movePlayerRacket(float dy, Player player){
+
+    }
+
+    /**
+     * Moves the player's position to a specified location on the table.
+     * This method is synchronized to ensure thread-safe updates to the player's position.
+     * Currently, this method is empty and needs implementation for player movement logic.
+     * @param player The player whose position is being updated.
+     * @param left The new x-coordinate of the player's position.
+     * @param top The new y-coordinate of the player's position.
+     */
+    public synchronized void movePlayer(Player player, float left, float top){
+
+    }
+
 }
