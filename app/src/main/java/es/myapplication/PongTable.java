@@ -12,35 +12,64 @@ import android.view.SurfaceView;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
+/**
+ * Class representing the Pong table, extending SurfaceView to display graphical content.
+ * Implements SurfaceHolder.Callback to handle surface-related events.
+ */
 public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
 
+    // Players and ball in the game
     private Player mPlayer;
     private Player mOpponent;
     private Ball mBall;
+    // Paints for drawing the net and table boundaries
     private Paint mNetPaint;
     private Paint mTalbeBoundsPaint;
+    // Table dimensions
     private int mTableWidth;
     private int mTableHeight;
+    // Application context
     private Context mContext;
-
+    // SurfaceHolder to manage the surface
     SurfaceHolder holder;
-
+    // Physical speed constants for rackets and ball
     public static float PHY_RACQUET_SPEED = 15.0f;
     public static float PHY_BALL_SPEED = 15.0f;
-
+    // Probability of AI opponent movement
     private float mAiMoveProbability;
+    // Movement state
     private boolean moving = false;
+    // Last touched position
     private float mlastTouchy;
 
 
+
+    /**
+     * Initialization method for the Pong table.
+     * @param ctx Application context
+     * @param attr Layout attributes
+     */
     public void initPongTable(Context ctx, AttributeSet attr){
 
     }
 
+    /**
+     * Constructor that initializes the view with layout attributes.
+     * @param context Application context
+     * @param attrs Layout attributes
+     */
     public PongTable(Context context, AttributeSet attrs) {
         super(context, attrs);
         initPongTable(context,attrs);
     }
+
+
+    /**
+     * Constructor that initializes the view with layout attributes and a default style.
+     * @param context Application context
+     * @param attrs Layout attributes
+     * @param defStyleAttr Default style
+     */
 
     public PongTable(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -91,17 +120,23 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
 
     }
 
-
+    /**
+     * Draws the view's content on the provided canvas.
+     * @param canvas Canvas where the content will be drawn
+     */
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        // Draw the table background with a specific color
         canvas.drawColor(ContextCompat.getColor(mContext,R.color.table_color));
+        // Draw the table boundaries
         canvas.drawRect(0,0,mTableWidth,mTableHeight,mTalbeBoundsPaint);
-
+        // Calculate the middle point of the table to draw the net
         int middle = mTableWidth/2;
+        // Draw the net at the middle point of the table
         canvas.drawLine(middle,1,middle,mTableHeight-1,mNetPaint);
 
-
+        // Draw the players and ball on the table
         mPlayer.draw(canvas);
         mOpponent.draw(canvas);
         mBall.draw(canvas);
