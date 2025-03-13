@@ -147,6 +147,15 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
     }
 
     /**
+     * Method intended to handle AI logic for the opponent player.
+     * Currently, this method is empty and needs implementation for AI decision-making.
+     */
+    private void doAi(){
+
+    }
+
+
+    /**
      * Handles touch events on the PongTable.
      * Currently, it delegates the touch handling to the superclass implementation.
      * @param event The MotionEvent representing the touch input.
