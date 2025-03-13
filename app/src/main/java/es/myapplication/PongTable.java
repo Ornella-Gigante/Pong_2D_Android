@@ -1,9 +1,12 @@
 package es.myapplication;
 
+import android.content.Context;
 import android.graphics.Paint;
+import android.util.AttributeSet;
 import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 
-public class PongTable {
+public class PongTable extends SurfaceView {
 
     private Player mPlayer;
     private Player mOpponent;
@@ -21,5 +24,15 @@ public class PongTable {
     private float mAiMoveProbability;
     private boolean moving = false;
     private float mlastTouchy;
+
+
+
+    public PongTable(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public PongTable(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
 
 }
