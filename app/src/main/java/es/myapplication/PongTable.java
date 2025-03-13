@@ -91,19 +91,21 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
     }
 
     /**
-     * This is called immediately after any structural changes (format or
-     * size) have been made to the surface.  You should at this point update
-     * the imagery in the surface.  This method is always called at least
-     * once, after {@link #surfaceCreated}.
+     * Called immediately after any structural changes (format or size) have been made to the surface.
+     * Updates the table dimensions to match the new surface size.
+     * This method is always called at least once, after {@link #surfaceCreated}.
      *
      * @param holder The SurfaceHolder whose surface has changed.
-     * @param format The new {@link PixelFormat} of the surface.
+     * @param format The new PixelFormat of the surface.
      * @param width  The new width of the surface.
      * @param height The new height of the surface.
      */
+
     @Override
     public void surfaceChanged(@NonNull SurfaceHolder holder, int format, int width, int height) {
 
+        mTableHeight = height;
+        mTableWidth =width;
     }
 
     /**
