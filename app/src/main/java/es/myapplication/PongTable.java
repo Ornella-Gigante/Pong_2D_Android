@@ -1,6 +1,7 @@
 package es.myapplication;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.util.AttributeSet;
@@ -9,6 +10,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 
 public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
 
@@ -36,10 +38,12 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
 
     public PongTable(Context context, AttributeSet attrs) {
         super(context, attrs);
+        initPongTable(context,attrs);
     }
 
     public PongTable(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        initPongTable(context, attrs);
     }
 
     /**
@@ -83,6 +87,14 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
      */
     @Override
     public void surfaceDestroyed(@NonNull SurfaceHolder holder) {
+
+    }
+
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        canvas.drawColor(ContextCompat.get);
 
     }
 }
