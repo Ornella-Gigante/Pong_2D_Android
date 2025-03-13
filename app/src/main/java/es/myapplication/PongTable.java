@@ -21,6 +21,7 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
     private Paint mTalbeBoundsPaint;
     private int mTableWidth;
     private int mTableHeight;
+    private Context mContext;
 
     SurfaceHolder holder;
 
@@ -94,7 +95,11 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawColor(ContextCompat.get);
+        canvas.drawColor(ContextCompat.getColor(mContext,R.color.table_color));
+        canvas.drawRect(0,0,mTableWidth,mTableHeight,mTalbeBoundsPaint);
+
+        int middle = mTableWidth/2;
+        canvas.drawLine(middle,1,middle,mTableHeight-1,mNetPaint);
 
     }
 }
