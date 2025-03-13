@@ -101,5 +101,10 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
         int middle = mTableWidth/2;
         canvas.drawLine(middle,1,middle,mTableHeight-1,mNetPaint);
 
+
+        mPlayer.draw(canvas);
+        mOpponent.draw(canvas);
+        mBall.draw(canvas);
+
     }
 }
