@@ -14,41 +14,29 @@ public class Ball {
     private Paint paint;
 
     /**
-     * Constructor that initializes a new ball with the given coordinates and velocities.
-     * @param cx x-coordinate of the center of the ball
-     * @param cy y-coordinate of the center of the ball
-     * @param velocity_x Velocity in the x direction
-     * @param velocity_y Velocity in the y direction
+     * Constructor that initializes a new ball with the given radius and paint.
+     * The ball's initial velocity is set to the physical ball speed defined in PongTable.
+     * @param radius The radius of the ball
+     * @param paint The paint used to draw the ball
      */
 
-    public Ball(float cx, float cy, float velocity_x, float velocity_y){
+    public Ball(int radius, Paint paint){
 
-        this.cx = cx;
-        this.cy = cy;
-        this.velocity_x = velocity_x;
-        this.velocity_y = velocity_y;
+        this.paint = paint;
+        this.radius = radius;
+        this.velocity_x = PongTable.PHY_BALL_SPEED;
+        this.velocity_y = PongTable.PHY_BALL_SPEED;
     }
 
 
     /**
-     * Updates and draws the position of the ball on the canvas.
-     * However, in this code, the ball is not actually being drawn.
+     * Draws the ball at its current position on the provided canvas.
      * @param canvas Canvas where the ball will be drawn
      */
 
     public void draw(Canvas canvas){
 
-        cx += velocity_x;
-        cy += velocity_y;
-
-
-        // Limits the vertical position of the ball so it does not go off the screen
-
-        if(cy < radius){
-            cy = radius;
-        }else if(cy + radius >= canvas.getHeight()){
-            cy = canvas.getHeight() - radius - 1;
-        }
+        canvas.drawCircle(cx,cy,radius,paint);
     }
 
     public int getRadius() {
