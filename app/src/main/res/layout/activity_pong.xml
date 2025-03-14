@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background=""
+    android:background="#1A1919"
     tools:context=".PongActivity">
 
 
@@ -18,9 +18,9 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="360dp"
         android:text="Player"
-        android:textStyle="bold"
+        android:textColor="#FAF8F8"
         android:textSize="22sp"
-        android:textColor="#fff"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvScoreOpponent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,11 +35,27 @@
         android:layout_marginEnd="88dp"
         android:layout_marginBottom="360dp"
         android:text="Opponent"
-        android:textStyle="bold"
-        android:textSize="22sp"
         android:textColor="#fff"
+        android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvScorePlayer"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ready!"
+        android:textColor="#fff"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    
 </androidx.constraintlayout.widget.ConstraintLayout>
