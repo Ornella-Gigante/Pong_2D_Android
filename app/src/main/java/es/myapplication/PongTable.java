@@ -265,7 +265,7 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
      * @param left The new x-coordinate of the player's position.
      * @param top The new y-coordinate of the player's position.
      */
-    
+
     public synchronized void movePlayer(Player player, float left, float top){
 
         if(left < 2){
@@ -276,7 +276,12 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
 
         }else if(top + player.getRacquetHeight()>= mTableHeight - 1){
             top = mTableHeight - player.getRacquetHeight()-1;
+
     }
+
+        // Move the player's bounds to the specified position (left, top)
+
+        player.bounds.offsetTo(left,top);
 
 }
 
