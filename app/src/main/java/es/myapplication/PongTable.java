@@ -1,6 +1,7 @@
 package es.myapplication;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
@@ -32,7 +33,7 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
     // Application context
     private Context mContext;
     // SurfaceHolder to manage the surface
-    SurfaceHolder holder;
+    SurfaceHolder mHolder;
     // Physical speed constants for rackets and ball
     public static float PHY_RACQUET_SPEED = 15.0f;
     public static float PHY_BALL_SPEED = 15.0f;
@@ -47,10 +48,29 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
 
     /**
      * Initialization method for the Pong table.
+     * Sets up the application context, SurfaceHolder, and retrieves layout attributes for racket dimensions.
      * @param ctx Application context
      * @param attr Layout attributes
      */
+
     public void initPongTable(Context ctx, AttributeSet attr){
+
+
+        mContext = ctx;
+        mHolder = getHolder();
+        mHolder.addCallback(this);
+
+        // Game Thread/Game Loop Initialize
+
+        TypedArray a = ctx.obtainStyledAttributes(attr,R.styleable.PongTable);
+        int racketHeight = a.getInteger(R.styleable.PongTable_racketHeight, 340);
+        int racketWidth = a.getInteger(R.styleable.PongTable_racketWight,340);
+        int ballRadius = a.getInteger(R.styleable.PongTable_racketHeight, 20);
+
+        // Recycle to avoid memory leaks!
+        a.recycle();
+
+
 
     }
 
