@@ -250,12 +250,15 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
 
     /**
      * Moves the player's racket vertically by a specified distance.
-     * Currently, this method is empty and needs implementation for racket movement logic.
+     * This method synchronizes the movement to ensure thread safety.
      * @param dy The distance to move the racket vertically.
      * @param player The player whose racket is being moved.
      */
     public void movePlayerRacket(float dy, Player player){
 
+        synchronized (mHolder){
+            movePlayer(player,player.bounds.left, player.bounds.top + dy);
+        }
     }
 
     /**
