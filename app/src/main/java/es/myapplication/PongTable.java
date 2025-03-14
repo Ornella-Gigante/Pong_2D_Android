@@ -3,6 +3,8 @@ package es.myapplication;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.util.AttributeSet;
@@ -93,6 +95,13 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
 
         // Drawing of middle lines
 
+        mNetPaint = new Paint();
+        mNetPaint.setAntiAlias(true);
+        mNetPaint.setColor(Color.WHITE);
+        mNetPaint.setAlpha(80);
+        mNetPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+        mNetPaint.setStrokeWidth(10.0f);
+        mNetPaint.setPathEffect(new DashPathEffect(new float[]{5,5},0));
 
 
         // Recycle to avoid memory leaks!
