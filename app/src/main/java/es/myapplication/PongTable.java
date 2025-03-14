@@ -216,10 +216,17 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
     }
 
     /**
-     * Method intended to handle AI logic for the opponent player.
-     * Currently, this method is empty and needs implementation for AI decision-making.
+     * Method that handles AI logic for the opponent player.
+     * It moves the opponent's racket to track the ball's vertical position.
      */
     private void doAi(){
+
+        if(mOpponent.bounds.top > mBall.cy){
+            movePlayer(mOpponent, mOpponent.bounds.left,
+                    mOpponent.bounds.top - PHY_RACQUET_SPEED);
+        }else if(mOpponent.bounds.top + mOpponent.getRacquetHeight() < mBall.cy){
+            movePlayer(mOpponent, mOpponent.bounds.left, mOpponent.bounds.top + PHY_RACQUET_SPEED);
+        }
 
     }
 
