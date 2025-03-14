@@ -259,15 +259,25 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
     }
 
     /**
-     * Moves the player's position to a specified location on the table.
+     * Moves the player's position to a specified location on the table while ensuring they stay within the table boundaries.
      * This method is synchronized to ensure thread-safe updates to the player's position.
-     * Currently, this method is empty and needs implementation for player movement logic.
      * @param player The player whose position is being updated.
      * @param left The new x-coordinate of the player's position.
      * @param top The new y-coordinate of the player's position.
      */
+    
     public synchronized void movePlayer(Player player, float left, float top){
 
+        if(left < 2){
+            left = 2;
+
+        }else if(left + player.getRacquetWidth() >= mTableWidth - 2){
+            left = mTableHeight - player.getRacquetWidth() -2;
+
+        }else if(top + player.getRacquetHeight()>= mTableHeight - 1){
+            top = mTableHeight - player.getRacquetHeight()-1;
     }
+
+}
 
 }
