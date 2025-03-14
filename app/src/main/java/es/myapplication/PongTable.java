@@ -64,8 +64,36 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
 
         TypedArray a = ctx.obtainStyledAttributes(attr,R.styleable.PongTable);
         int racketHeight = a.getInteger(R.styleable.PongTable_racketHeight, 340);
-        int racketWidth = a.getInteger(R.styleable.PongTable_racketWight,340);
-        int ballRadius = a.getInteger(R.styleable.PongTable_racketHeight, 20);
+        int racketWidth = a.getInteger(R.styleable.PongTable_racketWight,100);
+        int ballRadius = a.getInteger(R.styleable.PongTable_ballRadius, 20);
+
+
+        //Set Player
+
+        Paint playerPaint = new Paint();
+        playerPaint.setAntiAlias(true);
+        playerPaint.setColor(ContextCompat.getColor(mContext,R.color.player_color));
+        mPlayer = new Player(racketWidth,racketHeight,playerPaint);
+
+
+        // Set Opponent
+
+        Paint opponentPaint = new Paint();
+        opponentPaint.setAntiAlias(true);
+        opponentPaint.setColor(ContextCompat.getColor(mContext,R.color.player_color));
+        mOpponent = new Player(racketWidth, racketHeight, opponentPaint);
+
+        // Set Ball
+
+        Paint ballPaint = new Paint();
+        ballPaint.setAntiAlias(true);
+        ballPaint.setColor(ContextCompat.getColor(mContext,R.color.player_color));
+        mBall = new Ball( ballRadius, ballPaint);
+
+
+        // Drawing of middle lines
+
+
 
         // Recycle to avoid memory leaks!
         a.recycle();
