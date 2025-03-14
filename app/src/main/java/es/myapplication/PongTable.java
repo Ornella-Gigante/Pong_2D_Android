@@ -104,6 +104,18 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
         mNetPaint.setPathEffect(new DashPathEffect(new float[]{5,5},0));
 
 
+        // Drawing of Bounds
+
+        mTalbeBoundsPaint = new Paint();
+        mTalbeBoundsPaint.setAntiAlias(true);
+        mTalbeBoundsPaint.setColor(Color.BLACK);
+        mTalbeBoundsPaint.setStyle(Paint.Style.STROKE);
+        mTalbeBoundsPaint.setStrokeWidth(15.0f);
+
+
+        mAiMoveProbability = 0.86f;
+
+
         // Recycle to avoid memory leaks!
         a.recycle();
 
