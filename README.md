@@ -1,6 +1,6 @@
 # 🏓 Pong 2D Game
 Introduction
-Relive the classic arcade experience with Pong 2D on Android! This project brings back the legendary paddle-and-ball action, optimized for a smooth and addictive mobile experience.
+Relive the classic arcade experience with Pong 2D on Android! This project brings back the legendary paddle-and-ball action, optimized for a smooth and addictive mobile experience!
 
 ## What’s This?
 🚀 Pong 2D is a lightweight, fast-paced game where you control a paddle to keep the ball in play. It features a responsive game loop, collision detection, and an interactive UI—all built for an optimized mobile experience.
