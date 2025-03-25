@@ -12,7 +12,6 @@ import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
@@ -82,14 +81,14 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
 
         Paint opponentPaint = new Paint();
         opponentPaint.setAntiAlias(true);
-        opponentPaint.setColor(ContextCompat.getColor(mContext,R.color.player_color));
+        opponentPaint.setColor(ContextCompat.getColor(mContext,R.color.opponent_color));
         mOpponent = new Player(racketWidth, racketHeight, opponentPaint);
 
         // Set Ball
 
         Paint ballPaint = new Paint();
         ballPaint.setAntiAlias(true);
-        ballPaint.setColor(ContextCompat.getColor(mContext,R.color.player_color));
+        ballPaint.setColor(ContextCompat.getColor(mContext,R.color.ball_color));
         mBall = new Ball( ballRadius, ballPaint);
 
 
@@ -108,7 +107,7 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
 
         mTalbeBoundsPaint = new Paint();
         mTalbeBoundsPaint.setAntiAlias(true);
-        mTalbeBoundsPaint.setColor(Color.BLACK);
+        mTalbeBoundsPaint.setColor(ContextCompat.getColor(mContext,R.color.table_color));
         mTalbeBoundsPaint.setStyle(Paint.Style.STROKE);
         mTalbeBoundsPaint.setStrokeWidth(15.0f);
 
@@ -282,7 +281,7 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
             left = 2;
 
         }else if(left + player.getRacquetWidth() >= mTableWidth - 2){
-            left = mTableHeight - player.getRacquetWidth() -2;
+            left = mTableWidth - player.getRacquetWidth() -2;
 
         }else if(top + player.getRacquetHeight()>= mTableHeight - 1){
             top = mTableHeight - player.getRacquetHeight()-1;
