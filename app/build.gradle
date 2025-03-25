@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace 'es.myapplication'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "es.myapplication"

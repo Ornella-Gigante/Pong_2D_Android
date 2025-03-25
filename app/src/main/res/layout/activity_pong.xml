@@ -8,8 +8,8 @@
     tools:context=".PongActivity">
 
     <es.myapplication.PongTable
-        android:layout_width="735dp"
-        android:layout_height="508dp"
+        android:layout_width="902dp"
+        android:layout_height="492dp"
         android:text="Player"
         android:textColor="#fff"
         android:textSize="22sp"
@@ -37,8 +37,6 @@
         app:layout_constraintEnd_toStartOf="@id/tvScoreOpponent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
 
 
     <TextView
