@@ -300,4 +300,12 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
                 (mTableHeight - mOpponent.getRacquetHeight())/2);
     }
 
+
+    private void placeBall(){
+        mBall.cx = mTableWidth/2;
+        mBall.cy = mTableHeight/2;
+        mBall.velocity_y = (mBall.velocity_y / Math.abs(mBall.velocity_y) * PHY_BALL_SPEED );
+        mBall.velocity_x = (mBall.velocity_x / Math.abs(mBall.velocity_x) * PHY_BALL_SPEED );
+    }
+
 }
