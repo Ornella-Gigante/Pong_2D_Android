@@ -1,6 +1,7 @@
 package es.myapplication;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.os.SystemClock;
 import android.view.SurfaceHolder;
 import java.util.logging.Handler;
@@ -36,11 +37,43 @@ public class GameThread extends Thread{
     }
 
 
+    /**
+     * Main loop of the game thread, responsible for updating and rendering the game state.
+     * This method runs continuously while the game is active, handling game logic and drawing on the canvas.
+     */
+    
     @Override
     public void run(){
 
         long mNextGameTick = SystemClock.uptimeMillis();
         int skipTicks = 1000/ PHYS_FPS;
+
+        while(mRun){
+
+            Canvas c = null;
+            try{
+
+                c = mSurfaceHodler.lockCanvas(null);
+                if(c != null){
+                    synchronized (mScoreHandler){
+                        if(mGameState == STATE_RUNNING){
+                            mPongTable.update(c);
+                        }
+                        synchronized (mRunLock){
+                            if(mRun){
+                                mPongTable.draw(c);
+                            }
+                        }
+                    }
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+            }finally{
+                if(c != null){
+                    mSurfaceHodler.unlockCanvasAndPost(c);
+                }
+            }
+        }
     }
 
 

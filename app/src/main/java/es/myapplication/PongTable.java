@@ -6,7 +6,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
-import android.graphics.PixelFormat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.Surface;
@@ -196,8 +195,8 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
      * @param canvas Canvas where the content will be drawn
      */
     @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
+    public void draw(Canvas canvas) {
+        super.draw(canvas);
         // Draw the table background with a specific color
         canvas.drawColor(ContextCompat.getColor(mContext,R.color.table_color));
         // Draw the table boundaries
