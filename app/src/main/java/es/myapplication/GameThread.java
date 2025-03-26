@@ -1,6 +1,7 @@
 package es.myapplication;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.os.SystemClock;
 import android.view.SurfaceHolder;
@@ -86,8 +87,33 @@ public class GameThread extends Thread{
         }
     }
 
+    /**
+     * Sets the current state of the game.
+     * This method is synchronized to ensure thread safety when updating the game state.
+     * It uses a switch statement to handle different game states, such as ready or running.
+     * @param state The new state of the game.
+     */
 
     public void setState(int state){
 
+        synchronized (mSurfaceHodler){
+            mGameState = state;
+            Resources res = mCtx.getResources();
+            switch(mGameState){
+
+                case STATE_READY:
+
+                    // setUpNewRound();
+
+                break;
+
+                case STATE_RUNNING:
+
+                    //hideStatus();
+
+                break;
+
+            }
+        }
     }
 }
