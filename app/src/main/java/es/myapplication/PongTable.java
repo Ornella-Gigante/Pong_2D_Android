@@ -294,11 +294,21 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
 
 }
 
+    /**
+     * Configures the table by placing the ball and players at their initial positions.
+     * This method ensures that the game starts with the ball at the center and players at the sides.
+     */
+
     public void setupTable(){
         placeBall();
         placePlayers();
     }
 
+    /**
+     * Places the players at their initial positions on the table.
+     * The player is positioned at the left side, and the opponent is positioned at the right side,
+     * both centered vertically.
+     */
     private void placePlayers(){
         mPlayer.bounds.offsetTo(2,(mTableHeight-mPlayer.getRacquetHeight()/2));
         mOpponent.bounds.offsetTo(mTableWidth-mOpponent.getRacquetWidth()-2,
@@ -306,6 +316,10 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
     }
 
 
+    /**
+     * Places the ball at the center of the table and initializes its velocity.
+     * The ball's velocity is set to a consistent speed in both the x and y directions.
+     */
     private void placeBall(){
         mBall.cx = mTableWidth/2;
         mBall.cy = mTableHeight/2;
