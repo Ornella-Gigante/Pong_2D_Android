@@ -116,4 +116,45 @@ public class GameThread extends Thread{
             }
         }
     }
+
+    /**
+     * Sets up a new round by initializing the Pong table.
+     * This method is synchronized to ensure thread safety during setup.
+     */
+
+    public void setUpNewRound(){
+        synchronized (mSurfaceHodler){
+            mPongTable.setupTable();
+        }
+    }
+
+
+    /**
+     * Sets the running state of the game.
+     * This method is synchronized to ensure thread safety when updating the game state.
+     * @param running True if the game should be running, false otherwise.
+     */
+    public void setRunning(boolean running){
+        synchronized (mRunLock){
+            mRun = running;
+        }
+    }
+
+    /**
+     * Checks if the sensors are currently enabled.
+     * @return True if sensors are on, false otherwise.
+     */
+
+    public boolean SensorsOn(){
+        return mSensorsOn;
+    }
+
+    /**
+     * Checks if the game is currently between rounds.
+     * This method returns true if the game state is not running.
+     * @return True if the game is between rounds, false otherwise.
+     */
+    private boolean isBetweenRounds(){
+        return mGameState != STATE_RUNNING;
+    }
 }
