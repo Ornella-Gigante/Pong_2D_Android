@@ -41,7 +41,7 @@ public class GameThread extends Thread{
      * Main loop of the game thread, responsible for updating and rendering the game state.
      * This method runs continuously while the game is active, handling game logic and drawing on the canvas.
      */
-    
+
     @Override
     public void run(){
 
@@ -71,6 +71,16 @@ public class GameThread extends Thread{
             }finally{
                 if(c != null){
                     mSurfaceHodler.unlockCanvasAndPost(c);
+                }
+            }
+
+            mNextGameTick += skipTicks;
+            long sleepTime = mNextGameTick - SystemClock.uptimeMillis();
+            if(sleepTime > 0 ){
+                try{
+                    Thread.sleep(sleepTime);
+                }catch(InterruptedException e){
+                    e.printStackTrace();
                 }
             }
         }
