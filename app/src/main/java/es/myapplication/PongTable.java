@@ -327,4 +327,15 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
         mBall.velocity_x = (mBall.velocity_x / Math.abs(mBall.velocity_x) * PHY_BALL_SPEED );
     }
 
+    /**
+     * Updates the game state and prepares the canvas for rendering.
+     * This method should be called repeatedly to update the positions of game elements.
+     * @param canvas The Canvas where the updated game state will be drawn.
+     */
+
+    public void update(Canvas canvas){
+
+
+    }
+
 }

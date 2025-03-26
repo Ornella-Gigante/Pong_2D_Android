@@ -1,6 +1,7 @@
 package es.myapplication;
 
 import android.content.Context;
+import android.os.SystemClock;
 import android.view.SurfaceHolder;
 import java.util.logging.Handler;
 
@@ -19,6 +20,11 @@ public class GameThread extends Thread{
     private final PongTable mPongTable;
     private final Handler mGameStatusHandler;
     private final Handler mScoreHandler;
+    private boolean mRun = false;
+    private int mGameState;
+    private Object mRunLock;
+    private static final int PHYS_FPS = 60;
+
 
     public GameThread(Context mCtx, SurfaceHolder mSurfaceHodler, PongTable mPongTable, Handler mGameStatusHandler, Handler mScoreHandler) {
         this.mSurfaceHodler = mSurfaceHodler;
@@ -26,11 +32,19 @@ public class GameThread extends Thread{
         this.mGameStatusHandler = mGameStatusHandler;
         this.mScoreHandler = mScoreHandler;
         this.mCtx = mCtx;
+        mRunLock = new Object();
     }
 
 
     @Override
     public void run(){
-        super.run();
+
+        long mNextGameTick = SystemClock.uptimeMillis();
+        int skipTicks = 1000/ PHYS_FPS;
+    }
+
+
+    public void setState(int state){
+
     }
 }
