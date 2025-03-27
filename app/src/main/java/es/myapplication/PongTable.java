@@ -11,14 +11,23 @@ import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
+
+import org.w3c.dom.Text;
 
 /**
  * Class representing the Pong table, extending SurfaceView to display graphical content.
  * Implements SurfaceHolder.Callback to handle surface-related events.
  */
 public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
+
+    private GameThread mGame;
+    private TextView mStatus;
+    private TextView mScorePlayer;
+    private TextView mScoreOpponent;
 
     // Players and ball in the game
     private Player mPlayer;
@@ -333,6 +342,8 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
      */
 
     public void update(Canvas canvas){
+
+        
 
 
     }
