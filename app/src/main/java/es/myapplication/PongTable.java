@@ -369,12 +369,16 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
     /**
      * Updates the game state and prepares the canvas for rendering.
      * This method should be called repeatedly to update the positions of game elements.
+     * It currently handles AI logic for the opponent and moves the ball.
      * @param canvas The Canvas where the updated game state will be drawn.
      */
 
+
     public void update(Canvas canvas){
 
+        if(new Random(System.currentTimeMillis()).nextFloat() < mAiMoveProbability)doAi();
 
+        mBall.moveBall(canvas);
 
 
     }

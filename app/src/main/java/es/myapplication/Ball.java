@@ -9,8 +9,7 @@ public class Ball {
     public float cy;
     public float velocity_x;
     public float velocity_y;
-
-    private int radius;
+    public int radius;
     private Paint paint;
 
     /**
@@ -67,5 +66,6 @@ public class Ball {
             cy = canvas.getHeight() - radius - 1;
         }
     }
+
 
 }
