@@ -6,6 +6,9 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.Surface;
@@ -17,6 +20,8 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import org.w3c.dom.Text;
+
+import java.util.logging.LogRecord;
 
 /**
  * Class representing the Pong table, extending SurfaceView to display graphical content.
@@ -69,7 +74,32 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
         mHolder = getHolder();
         mHolder.addCallback(this);
 
-        // Game Thread/Game Loop Initialize
+
+        // Initialize the game thread with necessary handlers for game status and score updates
+        mGame = new GameThread(this.getContext(), mHolder, this, new Handler(Looper.getMainLooper()) {
+
+            @Override
+            public void handleMessage(@NonNull Message msg) {
+                super.handleMessage(msg);
+                if (mStatus != null) {
+                    mStatus.setVisibility(msg.getData().getInt("visibility"));
+                    mStatus.setText(msg.getData().getString("text"));
+                }
+            }
+
+        }, new Handler(Looper.getMainLooper()) {
+
+            @Override
+            public void handleMessage(@NonNull Message msg) {
+                super.handleMessage(msg);
+                if (mScorePlayer != null && mScoreOpponent != null) {
+                    mScorePlayer.setText(msg.getData().getString("player"));
+                    mScoreOpponent.setText(msg.getData().getString("opponent"));
+                }
+            }
+
+        });
+
 
         TypedArray a = ctx.obtainStyledAttributes(attr,R.styleable.PongTable);
         int racketHeight = a.getInteger(R.styleable.PongTable_racketHeight, 340);

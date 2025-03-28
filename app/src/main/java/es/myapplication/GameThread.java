@@ -5,7 +5,9 @@ import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.os.SystemClock;
 import android.view.SurfaceHolder;
-import java.util.logging.Handler;
+import android.os.Handler;
+import android.os.Message;
+
 
 public class GameThread extends Thread{
 
@@ -36,7 +38,6 @@ public class GameThread extends Thread{
         this.mCtx = mCtx;
         mRunLock = new Object();
     }
-
 
     /**
      * Main loop of the game thread, responsible for updating and rendering the game state.
