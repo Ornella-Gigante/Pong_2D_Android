@@ -21,6 +21,7 @@ import androidx.core.content.ContextCompat;
 
 import org.w3c.dom.Text;
 
+import java.util.Random;
 import java.util.logging.LogRecord;
 
 /**
@@ -373,7 +374,7 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
 
     public void update(Canvas canvas){
 
-        
+
 
 
     }
