@@ -155,7 +155,7 @@ public class GameThread extends Thread{
      * This method returns true if the game state is not running.
      * @return True if the game is between rounds, false otherwise.
      */
-    private boolean isBetweenRounds(){
+    public boolean isBetweenRounds(){
         return mGameState != STATE_RUNNING;
     }
 }
