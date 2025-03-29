@@ -267,19 +267,57 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
         }
 
     }
-
-
+    
     /**
      * Handles touch events on the PongTable.
-     * Currently, it delegates the touch handling to the superclass implementation.
+     * If sensors are not enabled, it handles touch events for moving the player's racket.
+     * If the game is between rounds, a touch event starts the game.
      * @param event The MotionEvent representing the touch input.
      * @return True if the event was handled, false otherwise.
      */
-
     @Override
-    public boolean onTouchEvent(MotionEvent event){
-        return super.onTouchEvent(event);
+    public boolean onTouchEvent(MotionEvent event) {
+
+        if (!mGame.SensorsOn()) {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    if (mGame.isBetweenRounds()) {
+                        mGame.setState(GameThread.STATE_RUNNING);
+                    } else {
+                        if (isTouchRacket(event, mPlayer)) {
+                            moving = true;
+                            mlastTouchy = event.getY();
+                        }
+                    }
+                    break;
+
+                case MotionEvent.ACTION_MOVE:
+                    if (moving) {
+                        float y = event.getY();
+                        float dy = y - mlastTouchy;
+                        mlastTouchy = y;
+                        movePlayerRacket(dy, mPlayer);
+                    }
+                    break;
+
+                case MotionEvent.ACTION_UP:
+                    moving = false;
+                    break;
+
+                default:
+                    break; // Agregado un default para manejar acciones no especificadas
+            }
+        } else {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                if (mGame.isBetweenRounds()) {
+                    mGame.setState(GameThread.STATE_RUNNING);
+                }
+            }
+        }
+
+        return true;
     }
+
 
     /**
      * Checks if a touch event occurred within the bounds of the player's racket.
