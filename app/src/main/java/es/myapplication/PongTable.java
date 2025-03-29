@@ -342,6 +342,16 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
         return mPlayer.bounds.contains(event.getX(),event.getY());
     }
 
+
+    /**
+     * Returns the GameThread instance associated with this PongTable.
+     * @return The GameThread instance.
+     */
+
+    public GameThread getGame(){
+        return mGame;
+    }
+
     /**
      * Moves the player's racket vertically by a specified distance.
      * This method synchronizes the movement to ensure thread safety.
