@@ -196,6 +196,9 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
     @Override
     public void surfaceCreated(@NonNull SurfaceHolder holder) {
 
+        mGame.setRunning(true);
+        mGame.start();
+
     }
 
     /**
@@ -267,7 +270,7 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
         }
 
     }
-    
+
     /**
      * Handles touch events on the PongTable.
      * If sensors are not enabled, it handles touch events for moving the player's racket.
