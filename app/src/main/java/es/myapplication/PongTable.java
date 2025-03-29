@@ -209,7 +209,7 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
      * @param width The new width of the surface.
      * @param height The new height of the surface.
      */
-    
+
     @Override
     public void surfaceChanged(@NonNull SurfaceHolder holder, int format, int width, int height) {
 
@@ -219,16 +219,24 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
     }
 
     /**
-     * This is called immediately before a surface is being destroyed. After
-     * returning from this call, you should no longer try to access this
-     * surface.  If you have a rendering thread that directly accesses
-     * the surface, you must ensure that thread is no longer touching the
-     * Surface before returning from this function.
-     *
-     * @param holder The SurfaceHolder whose surface is being destroyed.
+     * Handles the destruction of the surface, stopping the game thread and waiting for it to finish.
+     * This method is called when the surface is about to be destroyed.
+     * @param holder The SurfaceHolder that is being destroyed.
      */
+
     @Override
     public void surfaceDestroyed(@NonNull SurfaceHolder holder) {
+
+        boolean retry = true;
+        mGame.setRunning(false);
+        while(retry){
+            try{
+                mGame.join();
+                retry = false;
+            }catch(InterruptedException e){
+                e.printStackTrace();
+            }
+        }
 
 
     }
