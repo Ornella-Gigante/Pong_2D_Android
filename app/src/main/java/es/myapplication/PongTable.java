@@ -217,6 +217,7 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
 
         mTableHeight = height;
         mTableWidth =width;
+        mGame.setUpNewRound();
     }
 
     /**
