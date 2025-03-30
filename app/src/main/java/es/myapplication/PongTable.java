@@ -408,7 +408,7 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
      * both centered vertically.
      */
     private void placePlayers(){
-        mPlayer.bounds.offsetTo(2,(mTableHeight-mPlayer.getRacquetHeight()/2));
+        mPlayer.bounds.offsetTo(2, (mTableHeight - mPlayer.getRacquetHeight())/2);
         mOpponent.bounds.offsetTo(mTableWidth-mOpponent.getRacquetWidth()-2,
                 (mTableHeight - mOpponent.getRacquetHeight())/2);
     }
