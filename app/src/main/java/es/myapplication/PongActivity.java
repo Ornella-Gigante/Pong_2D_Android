@@ -24,11 +24,24 @@ public class PongActivity extends AppCompatActivity {
             return insets;
         });
 
+        // Retrieve the PongTable instance from the layout using its ID.
+        // This table serves as the main game surface.
         final PongTable table = (PongTable) findViewById(R.id.pongTable);
+
+        // Link the TextView for the opponent's score to the PongTable.
+        // This allows the table to update and display the opponent's score dynamically.
         table.setmScoreOpponent((TextView) findViewById(R.id.tvScoreOpponent));
+
+        // Link the TextView for the player's score to the PongTable.
+        // This allows the table to update and display the player's score dynamically.
         table.setmScorePlayer((TextView) findViewById(R.id.tvScorePlayer));
+
+        // Link the TextView for the game status to the PongTable.
+        // This allows the table to update and display game status messages dynamically.
         table.setmStatus((TextView) findViewById(R.id.tvStatus));
 
+        // Retrieve the GameThread instance from the PongTable.
+        // This thread manages game logic, including updates and rendering.
         mGameThread = table.getGame();
     }
 }
