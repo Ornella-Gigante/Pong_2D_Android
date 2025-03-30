@@ -8,7 +8,7 @@
     tools:context=".PongActivity">
 
     <es.myapplication.PongTable
-        android:id="@+id/PongTable"
+        android:id="@+id/pongTable"
         android:layout_width="902dp"
         android:layout_height="492dp"
         android:background="@color/table_color"
@@ -56,7 +56,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="341dp"
