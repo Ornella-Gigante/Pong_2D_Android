@@ -442,4 +442,31 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
 
     }
 
+    /**
+     * Sets the TextView used to display the player's score.
+     * @param view The TextView that will display the player's score.
+     */
+
+    public void setmScorePlayer(TextView view){
+        mScorePlayer = view;
+    }
+
+    /**
+     * Sets the TextView used to display the opponent's score.
+     * @param view The TextView that will display the opponent's score.
+     */
+
+    public void setmScoreOpponent(TextView view){
+        mScoreOpponent = view;
+    }
+
+
+    /**
+     * Sets the TextView used to display the game status.
+     * @param view The TextView that will display the game status.
+     */
+    public void setmStatus(TextView view){
+        mStatus = view;
+    }
+
 }
