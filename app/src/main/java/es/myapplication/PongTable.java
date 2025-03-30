@@ -331,15 +331,20 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
 
 
     /**
-     * Checks if a touch event occurred within the bounds of the player's racket.
+     * Determines whether a touch event occurred within the racquet's bounds.
+     * This method checks if the coordinates of a touch event fall within an
+     * expanded area around the player's racquet. The detection area is extended
+     * by 20 pixels in all directions to improve usability on touch devices.
      * @param event The MotionEvent representing the touch input.
-     * @param mPlayer The player whose racket is being checked.
-     * @return True if the touch is within the racket's bounds, false otherwise.
+     * @return True if the touch event occurred within the racquet's detection area, false otherwise.
      */
 
     private boolean isTouchRacket(MotionEvent event,Player mPlayer){
 
-        return mPlayer.bounds.contains(event.getX(),event.getY());
+        return event.getX() >= (mPlayer.bounds.left - 20)
+                && event.getX() <= (mPlayer.bounds.right + 20)
+                && event.getY() >= (mPlayer.bounds.top - 20)
+                && event.getY() <= (mPlayer.bounds.bottom + 20);
     }
 
 
