@@ -6,6 +6,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
+import android.graphics.Rect;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -363,10 +365,36 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
      * @param dy The distance to move the racket vertically.
      * @param player The player whose racket is being moved.
      */
-    public void movePlayerRacket(float dy, Player player){
+    private void movePlayerRacket(float dy, Player player) {
+        // 1. Calcular nueva posición vertical
+        float newTop = player.bounds.top + dy;
+        float newBottom = newTop + player.getRacquetHeight();
 
-        synchronized (mHolder){
-            movePlayer(player,player.bounds.left, player.bounds.top + dy);
+        // 2. Aplicar límites verticales (evitar salir de pantalla)
+        if (newTop < 0) { // Límite superior
+            newTop = 0;
+        } else if (newBottom > mTableHeight) { // Límite inferior
+            newTop = mTableHeight - player.getRacquetHeight();
+        }
+
+        // 3. Actualizar posición de la raqueta
+        player.bounds.offsetTo(
+                player.bounds.left, // Mantener posición horizontal
+                newTop // Nueva posición vertical ajustada
+        );
+
+        // 4. Redibujado optimizado (según API level)
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            invalidate(new Rect(
+                    (int) player.bounds.left - 20,
+                    (int) newTop - 20,
+                    (int) player.bounds.right + 20,
+                    (int) newBottom + 20
+            ));
+        } else {
+            // Para API 21+ usar invalidate() completo
+            // debido a cambios en hardware acceleration [1][2]
+            invalidate();
         }
     }
 
