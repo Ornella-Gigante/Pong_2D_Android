@@ -143,6 +143,23 @@ public class GameThread extends Thread{
     }
 
     /**
+     * Hides the game status text from the screen.
+     * This method sends a message to the game status handler to update the visibility
+     * of the status view, making it invisible. It uses a {@link Bundle} to package
+     * the visibility information, which is then sent as a message to the handler.
+     */
+
+    private void hideStatusText(){
+
+        Message msg = mGameStatusHandler.obtainMessage();
+        Bundle b = new Bundle();
+        b.putInt("visibility", View.INVISIBLE);
+        msg.setData(b);
+        mGameStatusHandler.sendMessage(msg);
+    }
+
+
+    /**
      * Sets up a new round by initializing the Pong table.
      * This method is synchronized to ensure thread safety during setup.
      */
