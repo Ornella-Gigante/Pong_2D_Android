@@ -3,10 +3,12 @@ package es.myapplication;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
+import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.SurfaceHolder;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
 
 
 public class GameThread extends Thread{
@@ -118,6 +120,28 @@ public class GameThread extends Thread{
         }
     }
 
+
+    /**
+     * Updates the game status text and displays it on the screen.
+     * This method sends a message to the game status handler with the provided
+     * text and makes the status view visible. It uses a {@link Bundle} to package
+     * the text and visibility information, which is then sent as a message to
+     * the handler.
+     * @param text The status message to be displayed.
+     */
+
+    private void setStatusText(String text){
+
+        Message msg = mGameStatusHandler.obtainMessage();
+        Bundle b = new Bundle();
+        b.putString("text", text);
+        b.putInt("visibility", View.VISIBLE);
+        msg.setData(b);
+        mGameStatusHandler.sendMessage(msg);
+
+
+    }
+
     /**
      * Sets up a new round by initializing the Pong table.
      * This method is synchronized to ensure thread safety during setup.
@@ -159,3 +183,6 @@ public class GameThread extends Thread{
         return mGameState != STATE_RUNNING;
     }
 }
+
+
+
