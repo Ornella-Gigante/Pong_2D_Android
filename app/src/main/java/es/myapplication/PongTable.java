@@ -476,6 +476,45 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
     }
 
     /**
+     * Retrieves the player instance representing the user.
+     *
+     * This method provides access to the player's paddle, allowing
+     * other components to query or manipulate its state.
+     *
+     * @return The {@link Player} instance representing the user.
+     */
+    public Player getmPlayer() {
+        return mPlayer;
+    }
+
+    /**
+     * Retrieves the opponent instance representing the AI-controlled paddle.
+     *
+     * This method provides access to the opponent's paddle, allowing
+     * other components to query or manipulate its state.
+     *
+     * @return The {@link Player} instance representing the opponent.
+     */
+    public Player getmOpponent() {
+        return mOpponent;
+    }
+
+    /**
+     * Retrieves the ball instance used in the game.
+     *
+     * This method provides access to the ball object, allowing
+     * other components to query or manipulate its state, such as
+     * position or velocity.
+     *
+     * @return The {@link Ball} instance used in the game.
+     */
+    public Ball getmBall() {
+        return mBall;
+    }
+
+
+
+    /**
      * Sets the TextView used to display the player's score.
      * @param view The TextView that will display the player's score.
      */
