@@ -160,6 +160,26 @@ public class GameThread extends Thread{
 
 
     /**
+     * Updates the player's and opponent's scores displayed on the screen.
+     * This method sends a message to the score handler with the provided
+     * scores for the player and opponent. It uses a {@link Bundle} to package
+     * the score information, which is then sent as a message to the handler.
+     * @param playerScore The score of the player to be displayed.
+     * @param opponentScore The score of the opponent to be displayed.
+     */
+
+    public void setScoreText(String playerScore, String opponentScore){
+
+        Message msg = mScoreHandler.obtainMessage();
+        Bundle b = new Bundle();
+        b.putString("player", playerScore);
+        b.putString("opponent", opponentScore);
+        msg.setData(b);
+        mScoreHandler.sendMessage(msg);
+    }
+
+
+    /**
      * Sets up a new round by initializing the Pong table.
      * This method is synchronized to ensure thread safety during setup.
      */
