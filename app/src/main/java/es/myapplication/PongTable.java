@@ -358,6 +358,25 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
 
 
     /**
+     * Checks if the ball has collided with the top or bottom wall of the game table.
+     *
+     * This method determines whether the ball's position is outside the vertical
+     * bounds of the table by comparing its center coordinates and radius against
+     * the table's height. A collision occurs if the ball's top edge is at or above
+     * the top boundary, or if its bottom edge is at or below the bottom boundary.
+     *
+     * @return True if the ball has collided with either the top or bottom wall, false otherwise.
+     */
+
+    private boolean checkCollisionWithTopOrBottomWall(){
+
+        return ((mBall.cy <= mBall.getRadius()) || (mBall.cy + mBall.getRadius() >= mTableHeight -1));
+    }
+
+
+
+
+    /**
      * Determines whether a touch event occurred within the racquet's bounds.
      * This method checks if the coordinates of a touch event fall within an
      * expanded area around the player's racquet. The detection area is extended
