@@ -333,6 +333,31 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
 
 
     /**
+     * Checks for a collision between a player's paddle and the ball.
+     * This method determines whether the ball intersects with the rectangular bounds
+     * of the specified player's paddle. It calculates the bounding box of the ball
+     * using its center coordinates and radius, and checks for intersection with
+     * the paddle's bounds.
+     * @param player The {@link Player} whose paddle is being checked for collision.
+     * @param ball The {@link Ball} whose position is being checked against the paddle.
+     * @return True if the ball intersects with the player's paddle, false otherwise.
+     */
+
+
+    private boolean checkCollisionPlayer(Player player, Ball ball){
+
+        return player.bounds.intersects(
+
+                ball.cx - ball.getRadius(),
+                ball.cy - ball.getRadius(),
+                ball.cx + ball.getRadius(),
+                ball.cy + ball.getRadius()
+
+        );
+    }
+
+
+    /**
      * Determines whether a touch event occurred within the racquet's bounds.
      * This method checks if the coordinates of a touch event fall within an
      * expanded area around the player's racquet. The detection area is extended
