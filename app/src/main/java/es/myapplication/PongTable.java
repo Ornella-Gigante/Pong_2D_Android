@@ -374,6 +374,20 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
     }
 
 
+    /**
+     * Checks if the ball has collided with the left wall of the game table.
+     * This method determines whether the ball's position is outside the left boundary
+     * of the table by comparing its center x-coordinate and radius. A collision occurs
+     * if the ball's left edge is at or beyond the left boundary.
+     * @return True if the ball has collided with the left wall, false otherwise.
+     */
+
+    private boolean checkCollisionWithLeftWall(){
+        
+        return mBall.cx <= mBall.getRadius();
+      }
+
+
 
 
     /**
