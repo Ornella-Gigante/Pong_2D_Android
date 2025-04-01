@@ -402,6 +402,35 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
 
 
     /**
+     * Handles the collision between a player's paddle and the ball.
+     * This method updates the ball's velocity and position based on the collision
+     * with the specified player's paddle. The ball's horizontal velocity is reversed
+     * and slightly increased to add difficulty over time. Additionally, the ball's
+     * position is adjusted to prevent it from overlapping with the paddle.
+     * If the collision is with the player's paddle, the ball is positioned just outside
+     * the right edge of the paddle. If the collision is with the opponent's paddle,
+     * the ball is positioned just outside the left edge of the paddle, and the opponent's
+     * paddle speed is slightly increased.
+     *
+     * @param player The {@link Player} whose paddle collided with the ball.
+     * @param ball The {@link Ball} involved in the collision.
+     */
+    
+      private void handleCollision(Player player, Ball ball){
+
+          ball.velocity_x = -ball.velocity_x * 1.05f;
+          if(player == mPlayer){
+
+              ball.cx = mPlayer.bounds.right + ball.getRadius();
+
+          }else if(player == mOpponent){
+
+              ball.cx = mOpponent.bounds.left - ball.getRadius();
+              PHY_RACQUET_SPEED = PHY_RACQUET_SPEED * 1.05f;
+          }
+      }
+
+    /**
      * Determines whether a touch event occurred within the racquet's bounds.
      * This method checks if the coordinates of a touch event fall within an
      * expanded area around the player's racquet. The detection area is extended
