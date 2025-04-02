@@ -397,7 +397,7 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
      */
       private boolean checkCollisionWithRightWall(){
 
-        return mBall.cx + mBall.getRadius() >= mTableHeight - 1;
+        return mBall.cx + mBall.getRadius() >= mTableWidth - 1;
       }
 
 
