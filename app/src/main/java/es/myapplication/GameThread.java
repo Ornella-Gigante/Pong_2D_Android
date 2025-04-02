@@ -105,17 +105,28 @@ public class GameThread extends Thread{
             switch(mGameState){
 
                 case STATE_READY:
-
-                    // setUpNewRound();
-
+                    setUpNewRound();
                 break;
 
                 case STATE_RUNNING:
-
-                    //hideStatus();
-
+                    hideStatusText();
                 break;
 
+                case STATE_WIN:
+                    setStatusText(res.getString(R.string.mode_win));
+                    mPongTable.getmPlayer().score++;
+                    setUpNewRound();
+                    break;
+
+                case STATE_LOSE:
+                    setStatusText(res.getString(R.string.mode_loss));
+                    mPongTable.getmPlayer().score++;
+                    setUpNewRound();
+                    break;
+
+                case STATE_PAUSED:
+                    setStatusText(res.getString(R.string.mode_paused));
+                    break;
             }
         }
     }
