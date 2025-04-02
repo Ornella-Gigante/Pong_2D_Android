@@ -569,6 +569,26 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
 
     public void update(Canvas canvas){
 
+
+        // Collision checks 
+
+        if(checkCollisionPlayer(mPlayer, mBall)){
+            handleCollision(mPlayer, mBall);
+        }else if(checkCollisionPlayer(mOpponent, mBall)){
+            handleCollision(mOpponent, mBall);
+        }else if(checkCollisionWithTopOrBottomWall()){
+            mBall.velocity_y = - mBall.velocity_y;
+        }else if(checkCollisionWithLeftWall()){
+            mGame.setState(GameThread.STATE_LOSE);
+            return;
+        }else if(checkCollisionWithRightWall()){
+            mGame.setState(GameThread.STATE_WIN);
+            return;
+        }
+
+
+
+
         if(new Random(System.currentTimeMillis()).nextFloat() < mAiMoveProbability)doAi();
 
         mBall.moveBall(canvas);
