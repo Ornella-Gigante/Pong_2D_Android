@@ -570,7 +570,7 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
     public void update(Canvas canvas){
 
 
-        // Collision checks 
+        // Collision checks
 
         if(checkCollisionPlayer(mPlayer, mBall)){
             handleCollision(mPlayer, mBall);
