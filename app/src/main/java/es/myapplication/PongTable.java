@@ -259,6 +259,9 @@ public class PongTable extends SurfaceView implements  SurfaceHolder.Callback{
         // Draw the net at the middle point of the table
         canvas.drawLine(middle,1,middle,mTableHeight-1,mNetPaint);
 
+        // Update of the values
+        mGame.setScoreText(String.valueOf(mPlayer.score), String.valueOf(mOpponent.score));
+
         // Draw the players and ball on the table
         mPlayer.draw(canvas);
         mOpponent.draw(canvas);

@@ -8,7 +8,7 @@ public class Player {
 
     private int racquetWidth;
     private int racquetHeight;
-    private int score;
+    public int score;
     private Paint paint;
     public RectF bounds;
 
