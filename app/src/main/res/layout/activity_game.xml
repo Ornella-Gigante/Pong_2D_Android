@@ -8,20 +8,68 @@
     android:background="@color/table_color"
     tools:context=".GameActivity">
 
-    <Button
-        android:layout_width="247dp"
-        android:layout_height="72dp"
-        android:background="@drawable/ic_launcher_background"
-        android:onClick="startGame"
-        android:text="PLAY GAME"
-        android:textAllCaps="true"
-        android:textColor="#fff"
-        android:textSize="35sp"
-        android:textStyle="bold"
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="132dp"
+        android:layout_height="111dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButton2"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundImage"
+        app:srcCompat="@drawable/pong" />
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="729dp"
+        android:layout_height="295dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/pong_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.739" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="188dp"
+        android:layout_height="66dp"
+        android:onClick="startGame"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.915"
+
+        app:srcCompat="@drawable/play_button_bg" />
+
+    <TextView
+        android:id="@+id/playGameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="PLAY"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton2"
+        app:layout_constraintStart_toStartOf="@+id/imageButton2"
+        app:layout_constraintTop_toTopOf="@+id/imageButton2" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="132dp"
+        android:layout_height="111dp"
+        android:layout_marginTop="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundImage"
+        app:srcCompat="@drawable/pong2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
