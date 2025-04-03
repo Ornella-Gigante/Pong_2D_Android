@@ -9,18 +9,19 @@
     tools:context=".GameActivity">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PLAY GAME"
-        android:textSize="35sp"
-        android:textColor="#fff"
-        android:textStyle="bold"
+        android:layout_width="247dp"
+        android:layout_height="72dp"
         android:background="@drawable/ic_launcher_background"
-        android:textAllCaps="true"
         android:onClick="startGame"
+        android:text="PLAY GAME"
+        android:textAllCaps="true"
+        android:textColor="#fff"
+        android:textSize="35sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.739" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
