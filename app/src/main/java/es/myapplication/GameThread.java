@@ -120,7 +120,7 @@ public class GameThread extends Thread{
 
                 case STATE_LOSE:
                     setStatusText(res.getString(R.string.mode_loss));
-                    mPongTable.getmPlayer().score++;
+                    mPongTable.getmOpponent().score++;
                     setUpNewRound();
                     break;
 
