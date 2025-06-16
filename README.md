@@ -1,6 +1,6 @@
 # 🏓 Pong 2D Game
 Introduction
-Relive the classic arcade experience with Pong 2D on Android! This project brings back the legendary paddle-and-ball action, optimized for a smooth and addictive mobile experience!!
+Relive the classic arcade experience with Pong 2D on Android! This project brings back the legendary paddle-and-ball action, optimized for a smooth and addictive mobile experience!
 
 
 ![Gameplay Screenshot](https://github.com/Ornella-Gigante/Pong_2D_Android/blob/main/pong_1.png)
