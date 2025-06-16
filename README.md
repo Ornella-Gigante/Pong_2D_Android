@@ -43,7 +43,7 @@ Relive the classic arcade experience with Pong 2D on Android! This project bring
 
 ## Contributions
 
-🤝 Contributions are always welcome! If you have ideas for improvements, feel free to submit a pull request!
+🤝 Contributions are always welcome! If you have ideas for improvements, feel free to submit a pull request!!
 
 ## Enjoy the Game!
 🎯 Have fun playing Pong 2D! 🚀
